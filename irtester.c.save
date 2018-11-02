@@ -1,0 +1,64 @@
+#include <stdio.h>
+#include <wiringPi.h>
+#include " ifttt.h"
+#include <time.h>
+
+void ALARM_OFF(void);
+void ALARM_TRIGGERED(void);
+void ALARM_SOUNDIN(void);
+void ALARM_ARMING(void);
+void ALARM_ARMED(void);
+
+int main(int argc, char *argv[])
+{
+  int i;
+  wiringPiSetup () ;
+  pinMode(0, INPUT);
+  pinMode(1, OUNPUT);
+  pinMode(2, OUTPUT);
+  pinMode(3, INPUT);
+  pinMode(4, OUTPUT);
+
+  while(1) {
+
+ALARM_OFF();
+
+}
+  /*NOTREACHED*/
+  return 0 ;
+}
+
+void ALARM_0FF(void)
+{
+
+ int i;
+  wiringPiSetup () ;
+  pinMode(0, INPUT);
+  pinMode(1, OUNPUT);
+  pinMode(2, OUTPUT);
+  pinMode(3, INPUT);
+  pinMode(4, OUTPUT);
+
+pullUpDnControl(3, PUD_UP);
+
+while(1)
+{
+digitalWrite(4,LOW);
+digitalWrite(2,HIGH);
+digitalWrite(1,HIGH);
+
+if(digitalRead(3) ==0)
+{
+
+printf("calling alarm \n");
+ALARM_ARMING();
+  }
+ }
+}
+
+
+void ALARM_ARMING(void)
+{
+
+digitalWrite(2,HIGH);
+
